@@ -29,5 +29,5 @@ jobs:
           pip install -r requirements.txt # Install/update dependencies
           # Optional: Add database migration commands here if using Alembic
           # alembic upgrade head
-          sudo /usr/bin/systemctl restart musicapp # Restart the application service
+          sudo /usr/bin/systemctl restart musicapp.service # Restart the application service
           echo "Deployment successful!"
