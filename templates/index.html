@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Recommendations</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        h1 { color: #333; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Music Recommendation App!</h1>
+    <p>This is a simple index page.</p>
+    <p>and the github action actually works!!!</p>
+    <p> and it still works hours later?</p>
+    <h2>Some Songs (Example Data)</h2>
+    {% if songs %}
+        <ul>
+            {% for song in songs %}
+                <li>{{ song.title }} by {{ song.artist }} ({{ song.genre }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No songs found in the database yet. you should probably run create-tables.py</p>
+    {% endif %}
+
+</body>
+</html>

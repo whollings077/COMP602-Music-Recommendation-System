@@ -1,0 +1,33 @@
+# .github/workflows/deploy.yml
+name: Deploy Music Recommendation App
+
+on:
+  push:
+    branches:
+      - CICDtest # Trigger deployment on push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # Use a standard runner environment
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4 # Fetches your code
+
+    - name: Deploy to Server via SSH
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        port: 33322
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: | # Commands to run on the server
+          set -e # Exit immediately if a command exits with a non-zero status.
+          cd /home/musicappuser/music-recommendation-app # Navigate to app directory
+          git pull origin main # Pull latest changes from main branch
+          source venv/bin/activate # Activate virtual environment
+          pip install -r requirements.txt # Install/update dependencies
+          # Optional: Add database migration commands here if using Alembic
+          # alembic upgrade head
+          sudo /usr/bin/systemctl restart musicapp.service # Restart the application service
+          echo "Deployment successful!"
