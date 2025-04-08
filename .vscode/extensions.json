@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "ionic.ionic",
+    "angular.ng-template",
+    "usernamehw.errorlens",
+    "vscode-icons-team.vscode-icons",
+    "formulahendry.auto-rename-tag",
+    "dbaeumer.vscode-eslint",
+    "cipchk.ng-zorro-vscode",
+    "esbenp.prettier-vscode",
+    "albert.tabout",
+    "w0o0o.bun-scripts"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Music Recommendation",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
